@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/fragment_horizontal_margin"
+
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <EditText
+            android:id="@+id/input_value_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fragment_horizontal_margin"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="From"
+            app:layout_constraintEnd_toStartOf="@id/output_value_et"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/from_tv" />
+
+        <EditText
+            android:id="@+id/output_value_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fragment_horizontal_margin"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="To"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/input_value_et"
+            app:layout_constraintTop_toBottomOf="@id/to_tv" />
+
+        <Spinner
+            android:id="@+id/from_currency_sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_horizontal_margin"
+            app:layout_constraintEnd_toEndOf="@id/input_value_et"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@id/input_value_et"
+            app:layout_constraintTop_toBottomOf="@id/input_value_et" />
+
+
+        <Button
+            android:id="@+id/convert_btn"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/convert"
+            app:layout_constraintBottom_toTopOf="@id/show_details_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/from_currency_sp"
+            app:layout_constraintTop_toBottomOf="@id/swap_btn"
+            app:layout_constraintVertical_bias="0.205" />
+
+        <Button
+            android:id="@+id/swap_btn"
+            android:layout_width="56dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="@dimen/fragment_horizontal_margin"
+            app:icon="@drawable/ic_swap"
+            app:layout_constraintEnd_toStartOf="@id/output_value_et"
+            app:layout_constraintHorizontal_bias=".5"
+
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/input_value_et"
+            app:layout_constraintTop_toBottomOf="@id/from_currency_sp" />
+
+
+        <Spinner
+            android:id="@+id/to_currency_sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_horizontal_margin"
+            app:layout_constraintEnd_toEndOf="@id/output_value_et"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@id/output_value_et"
+            app:layout_constraintTop_toBottomOf="@id/output_value_et" />
+
+
+        <Button
+            android:id="@+id/show_details_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_horizontal_margin"
+            android:text="@string/details"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/to_currency_sp"
+            app:layout_constraintHorizontal_bias="0.609"
+            app:layout_constraintStart_toEndOf="@id/from_currency_sp"
+
+
+            app:layout_constraintTop_toBottomOf="@id/swap_btn"
+            app:layout_constraintVertical_bias="0.964" />
+
+        <TextView
+            android:id="@+id/from_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/from"
+            app:layout_constraintStart_toStartOf="@id/input_value_et"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/to_tv"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to"
+
+            app:layout_constraintStart_toStartOf="@id/output_value_et"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

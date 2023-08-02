@@ -1,0 +1,116 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.doaasaif.currency"
+        minSdk 23
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.1.1'  //'1.5.1'
+        kotlinCompilerVersion '1.6.0'
+    }
+
+
+
+}
+
+
+dependencies {
+
+
+    //ktx
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:1.6.0'
+    implementation 'androidx.test:monitor:1.6.1'
+//test
+    testImplementation 'io.mockk:mockk:1.13.4'
+
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation 'com.google.android.material:material:1.6.0'
+
+
+    //dagger hilt
+    implementation 'com.google.dagger:hilt-android:2.40.5'
+    kapt 'com.google.dagger:hilt-android-compiler:2.40.5'
+
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    testImplementation 'junit:junit:4.+'
+    // required if you want to use Mockito for unit tests
+    testImplementation 'org.mockito:mockito-core:2.24.5'
+    // required if you want to use Mockito for Android tests
+    androidTestImplementation 'org.mockito:mockito-android:2.24.5'
+
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
+
+    //rxjava
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    implementation "androidx.core:core-ktx:1.6.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.0"
+
+
+    implementation 'androidx.compose.runtime:runtime-livedata:1.2'
+    implementation 'org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.6.0'
+
+
+    // Compose
+    implementation deps.compose.activityCompose
+    implementation deps.compose.composeRuntime
+    implementation deps.compose.constraintLayout
+    // implementation deps.compose.composeNavigation
+    implementation deps.compose.core
+    implementation deps.compose.foundation
+    implementation deps.compose.tooling
+    implementation deps.compose.layout
+    implementation deps.compose.material
+    implementation deps.compose.savedInstanceState
+    implementation deps.compose.uiLiveData
+    androidTestImplementation deps.compose.composeNavigationTest
+    androidTestImplementation deps.compose.uiTest
+
+    implementation project(path: ':data')
+    implementation project(path: ':domain')
+
+
+}
